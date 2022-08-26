@@ -17,3 +17,10 @@ UI - какое-то представление для пользователя
 
 ## режим разработчика
 - process.env.NODE_ENV === "development" 
+
+## использование REDUX_DEVTOOLS вместе с middlware
+1. один из возможных вариантов это обернуть функцию applyMiddleware в composeEnhancers
+- 'const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;'
+- compose єто возможность последовательно вызывать функции, достаем из "redux"
+2. второй вариант єто воспользоваться готовой функцией composeWithDevTools из "redux-devtools-extension"
+- npm i redux-devtools-extension

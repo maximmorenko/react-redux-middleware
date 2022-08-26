@@ -1,5 +1,6 @@
-import { createStore, applyMiddleware } from "redux";
+import { createStore, applyMiddleware, compose } from "redux";
 import logger from "redux-logger";
+import { composeWithDevTools } from "@reduxjs/toolkit/dist/devtoolsExtension";
 
 const counter = (state = 0, action) => {
     switch (action.type) {
@@ -17,6 +18,8 @@ const counter = (state = 0, action) => {
         }
     }
 };
+
+const composeEnhancers = window.__REDUX_DEVTOOLS_EXTENSION_COMPOSE__ || compose;
 
 // подключение мидлвери происходит в момент создания стора
 // создадим мидлвер myLogger (логирование), это цепочка вызовов функций, 
@@ -55,8 +58,9 @@ const myLogger = (store) => (next) => (action) => {
 export const store = createStore(
     counter,
     // window.__REDUX_DEVTOOLS_EXTENSION__ && window.__REDUX_DEVTOOLS_EXTENSION__(),
-    applyMiddleware(...middleware), // можно добавить сразу несколько аргументов (разные мидлвейр)
+    composeEnhancers(applyMiddleware(...middleware)), // можно добавить сразу несколько аргументов (разные мидлвейр)
     // воспользуемся спред оператором так как нам нужны функции из массива
+    // оборачиваем applyMiddleware в composeEnhancers для запуска REDUX_DEVTOOLS
 );
 
 // actions for hooks

@@ -1,6 +1,5 @@
 import { createStore, applyMiddleware, compose } from "redux";
 import logger from "redux-logger";
-import { composeWithDevTools } from "@reduxjs/toolkit/dist/devtoolsExtension";
 
 const counter = (state = 0, action) => {
     switch (action.type) {

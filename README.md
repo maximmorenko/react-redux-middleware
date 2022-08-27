@@ -24,3 +24,10 @@ UI - какое-то представление для пользователя
 - compose єто возможность последовательно вызывать функции, достаем из "redux"
 2. второй вариант єто воспользоваться готовой функцией composeWithDevTools из "redux-devtools-extension"
 - npm i redux-devtools-extension
+
+## persist - библиотека помогающаю организовать процесс сохранения данных в локалСторидж
+- npm i redux-persist
+- не работает с middleware
+- пример на проекте "список работ":
+# [persist DEMO](https://react-job-listings-with-filtering.vercel.app/)
+# [rersist REPO](https://github.com/maximmorenko/react-job-listings-with-filtering)
